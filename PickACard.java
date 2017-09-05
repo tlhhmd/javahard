@@ -22,13 +22,17 @@ public class PickACard {
 		out.println("In Blackjack your card is worth " + picked.value);
 
 		Card[] newdeck = shuffleDeck(deck);
+
+		out.println("You picked a " + newdeck[chosen] + " out of the deck.");
+		out.println("In Blackjack your card is worth " + newdeck[chosen].value);
+
 	}
 
 	public static Card[] buildDeck() {
 		String[] suits = {"clubs", "diamonds", "hearts", "spades"};
 
-		String[] names = {"ZERO", "ONE", "two", "three", "four", 
-			"five", "six", "seven", "eight", "nine", "ten", 
+		String[] names = {"ZERO", "ONE", "two", "three", "four",
+			"five", "six", "seven", "eight", "nine", "ten",
 			"Jack", "Queen", "King", "Ace"};
 
 		int i = 0;
@@ -63,13 +67,9 @@ public class PickACard {
 			swap1 = (int) (Math.random() * deck.length);
 			swap2 = (int) (Math.random() * deck.length);
 
-			out.println(deck[swap1]);
-
 			placeholder = deck[swap1];
 			deck[swap1] = deck[swap2];
 			deck[swap2] = placeholder;
-
-			out.println(deck[swap1]);
 		}
 
 		return deck;
